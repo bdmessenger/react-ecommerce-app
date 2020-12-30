@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* overflow-x: hidden; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+    flex-grow: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header, main, footer {
+    flex-shrink: 0;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+
+@responsive {
+    .tw-container {
+        @apply max-w-screen-xl mx-auto w-11/12;
+    }
+
+    .main-product-image {
+        height: 475px
+    }
+
+    .main-product-image-md {
+        height: 420px;
+    }
+
+    .main-product-image-sm {
+        height: 300px;
+    }
+
+    .btn {
+        @apply bg-gray-200;
+        @apply text-base;
+        @apply block;
+        @apply px-3 py-2;
+        @apply rounded;
+        @apply uppercase;
+        @apply tracking-widest;
+    }
+
+    .btn-lg {
+        @apply btn;
+        @apply text-lg !important;
+    }
+
+    .btn-sm {
+        @apply btn;
+        @apply text-sm !important;
+    }
+
+    .btn-form {
+        @apply btn;
+        @apply py-2 px-4 !important;
+        @apply rounded-l-none;
+    }
+
+    .btn-container {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .w-full-important {
+        @apply w-full !important;
+    }
+
+    .cart-grid-cols-5 {
+        grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    }
+
+    .cart-grid-cols-3 {
+        grid-template-columns: 180px auto auto;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+
+h1 {
+    @apply text-5xl;
+}
+
+h2 {
+    @apply text-4xl;
+}
+
+h3 {
+    @apply text-3xl;
+}
+
+h4 {
+    @apply text-2xl;
+}
+
+h5 {
+    @apply text-xl;
+}
+
+h6 {
+    @apply text-lg;
+}
+
+#showcase-image::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-8%);
+    background-color: #3b82f6;
+    width: 100%;
+    height: 80%;
+    z-index: -10;
+    border-radius: 0.25rem;
+}
+
+#newsletter input[type=email]:focus {
+    box-shadow: 0px 0px 0px 3px #3878DF;
+    border-radius: 0.2rem;
 }
